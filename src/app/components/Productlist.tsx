@@ -21,7 +21,7 @@ const products = [
 
   },
   {
-    id:1,
+    id:3,
     title:"Calzone pizza",
     category:"fixing",
     price: "200.00",
@@ -31,20 +31,61 @@ const products = [
   },
 ]
 
+
 export default function Productlist() {
   return (
-    <div>
-      <div>
-        profgnjybfgvcdxdfcghj
-      </div>
-      </div>
+    <div className='p-1 flex flex-wrap items-center justify-center mb-6'>
+      {products.map((product) => (
+        <div
+          key={product.id}
+          className={`flex shrink-0 m-6 relative overflow-hidden ${product.bgColor} rounded-lg shadow-lg group max-w-sm`}
+        >
+          {/* Decorative SVG */}
+          <svg
+            className='absolute bottom-0 left-0 mb-8 scale-105 group-hover:scale-[1.65] transition-transform'
+            viewBox='0 0 375 283'
+            fill='none'
+          >
+            <rect
+              x='159.52'
+              y='152'
+              height='152'
+              width='152'
+              rx='8'
+              transform='rotate(-45 0 107.48)'
+              fill='white'
+            />
+            <rect
+              y='107.48'
+              height='152'
+              width='152'
+              rx='8'
+              transform='rotate(-45 0 107.48)'
+              fill='white'
+            />
+          </svg>
 
-
-  )
+          {/* Product Content */}
+          <div className='relative pt-10 px-10 flex flex-col items-center justify-center group-hover:scale-110 transition-transform'>
+            <div
+              className='block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3'
+              style={{
+                background: 'radial-gradient(black, transparent 50%)',
+                transform: 'rotate(45deg)',
+              }}
+            ></div>
+            <img
+              className='relative w-32 h-32 object-cover rounded-full mb-4'
+              src={product.imageurl}
+              alt={product.title}
+            />
+            <h3 className='text-lg font-bold text-gray-800'>{product.title}</h3>
+            <p className='text-gray-600'>{product.price}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
-
-
-
-
-  
-
+      
+    
